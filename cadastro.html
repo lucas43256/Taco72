@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Criar conta - TACO 72</title>
+  <meta name="description" content="Crie uma conta de demonstração no TACO 72.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+
+<body>
+
+<a class="skip" href="#principal">Pular para o conteúdo</a>
+
+<header id="site-header" class="site-header">
+
+  <div class="wrap nav">
+
+    <a class="logo" href="index.html" aria-label="TACO 72 - página inicial">
+      <span>TACO</span>
+      <b>72</b>
+    </a>
+
+    <button id="btn-menu" class="btn-menu" type="button" aria-label="Abrir menu">☰</button>
+
+    <nav class="nav-links" aria-label="Principal">
+
+      <div class="nav-main">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="cardapio.html">Cardápio</a>
+        <a class="nav-link" href="pedidos.html">Meus pedidos</a>
+      </div>
+
+      <div class="nav-actions">
+
+        <button id="btn-tema" class="btn-tema" type="button" aria-label="Alternar tema claro e escuro">
+          <span class="so-claro">☾</span>
+          <span class="so-escuro">☀</span>
+        </button>
+
+        <span id="conta-visitante" class="conta">
+          <a class="nav-link" href="login.html">Entrar</a>
+          <a class="btn btn-borda" href="cadastro.html">Criar conta</a>
+        </span>
+
+        <span id="conta-logada" class="conta" hidden>
+          <a class="nav-link" href="perfil.html">Olá, <span id="nome-usuario"></span></a>
+          <button id="btn-sair" class="btn btn-borda" type="button">Sair</button>
+        </span>
+
+        <a class="btn btn-escuro" href="carrinho.html">
+          Carrinho
+          <span id="contador" class="contador">0</span>
+        </a>
+
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+
+<main id="principal">
+
+<div class="caixa-form">
+
+  <span class="eyebrow">Conta de demonstração</span>
+  <h1 class="display">Criar conta</h1>
+
+  <p class="mensagem aviso note">
+    Os dados ficam só neste navegador e não têm segurança de verdade.
+    Use dados inventados e não use uma senha que você usa em outros lugares.
+  </p>
+
+  <p id="msg-erro" class="mensagem problema" role="alert" hidden>Confira os campos marcados em vermelho.</p>
+  <p id="msg-ok" class="mensagem" role="status" hidden>Conta criada! Redirecionando...</p>
+
+  <form id="form-cadastro" novalidate>
+
+    <label>
+      <span>Nome completo</span>
+      <input type="text" id="nome" autocomplete="name" data-tipo="texto" data-erro="Digite seu nome completo.">
+      <small class="erro"></small>
+    </label>
+
+    <label>
+      <span>E-mail</span>
+      <input type="email" id="email" autocomplete="email" data-tipo="email" data-erro="Digite um e-mail válido." data-erro-repetido="Esse e-mail já está cadastrado.">
+      <small class="erro"></small>
+    </label>
+
+    <label>
+      <span>Telefone</span>
+      <input type="tel" id="telefone" inputmode="numeric" placeholder="(00) 00000-0000" autocomplete="tel" data-mascara="telefone" data-tipo="telefone" data-erro="Digite o telefone com DDD.">
+      <small class="erro"></small>
+    </label>
+
+    <label>
+      <span>Senha (mínimo de 6 caracteres)</span>
+      <input type="password" id="senha" autocomplete="new-password" data-tipo="senha" data-erro="A senha precisa ter pelo menos 6 caracteres.">
+      <small class="erro"></small>
+    </label>
+
+    <label>
+      <span>Confirmar senha</span>
+      <input type="password" id="senha2" autocomplete="new-password" data-tipo="igual" data-igual="senha" data-erro="As senhas não são iguais.">
+      <small class="erro"></small>
+    </label>
+
+    <button class="btn btn-laranja" type="submit">Criar conta</button>
+
+  </form>
+
+  <p>Já tem conta? <a href="login.html"><strong>Entrar</strong></a></p>
+
+</div>
+
+</main>
+
+
+<footer class="site-footer">
+
+  <div class="wrap rodape-colunas">
+
+    <div>
+      <a class="logo" href="index.html" aria-label="TACO 72">
+        <span>TACO</span>
+        <b>72</b>
+      </a>
+      <p class="rodape-texto">
+        Taco de rua, sem atalho.<br>
+        Sabor de rua, feito de verdade.
+      </p>
+    </div>
+
+    <nav aria-label="Navegue">
+      <h2 class="rodape-titulo">Navegue</h2>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="pedidos.html">Meus pedidos</a>
+      <a href="perfil.html">Minha conta</a>
+    </nav>
+
+    <div>
+      <h2 class="rodape-titulo">Atendimento </h2>
+      <p class="rodape-texto">
+        Seg a Sex, 11h às 23h<br>
+        Sab, 11h, às 19h <br>
+        (31) 98765-4321<br>
+        contato@taco72.com
+      </p>
+    </div>
+
+  </div>
+
+  <div class="wrap rodape-fim">
+    <p>2026 © <span id="ano"></span> Taco 72. Receitas mexicanas com ingredientes frescos, fogo alto e entrega rápida. Da nossa cozinha direto para a sua fome.</p>
+  </div>
+
+</footer>
+
+
+<script src="main.js"></script>
+<script src="autenticacao.js"></script>
+
+</body>
+</html>

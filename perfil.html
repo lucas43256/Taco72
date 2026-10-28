@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minha conta - TACO 72</title>
+  <meta name="description" content="Dados da sua conta e endereço de entrega no TACO 72.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+
+<body>
+
+<a class="skip" href="#principal">Pular para o conteúdo</a>
+
+<header id="site-header" class="site-header">
+
+  <div class="wrap nav">
+
+    <a class="logo" href="index.html" aria-label="TACO 72 - página inicial">
+      <span>TACO</span>
+      <b>72</b>
+    </a>
+
+    <button id="btn-menu" class="btn-menu" type="button" aria-label="Abrir menu">☰</button>
+
+    <nav class="nav-links" aria-label="Principal">
+
+      <div class="nav-main">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="cardapio.html">Cardápio</a>
+        <a class="nav-link" href="pedidos.html">Meus pedidos</a>
+      </div>
+
+      <div class="nav-actions">
+
+        <button id="btn-tema" class="btn-tema" type="button" aria-label="Alternar tema claro e escuro">
+          <span class="so-claro">☾</span>
+          <span class="so-escuro">☀</span>
+        </button>
+
+        <span id="conta-visitante" class="conta">
+          <a class="nav-link" href="login.html">Entrar</a>
+          <a class="btn btn-borda" href="cadastro.html">Criar conta</a>
+        </span>
+
+        <span id="conta-logada" class="conta" hidden>
+          <a class="nav-link on" href="perfil.html">Olá, <span id="nome-usuario"></span></a>
+          <button id="btn-sair" class="btn btn-borda" type="button">Sair</button>
+        </span>
+
+        <a class="btn btn-escuro" href="carrinho.html">
+          Carrinho
+          <span id="contador" class="contador">0</span>
+        </a>
+
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+
+<main id="principal">
+
+<div class="pagina">
+
+  <div class="pagina-topo">
+    <span class="eyebrow">Conta de demonstração</span>
+    <h1 class="display">Minha conta</h1>
+    <p>Esses dados ficam só neste navegador e não aparecem em outros aparelhos.</p>
+  </div>
+
+
+  <!-- aparece se ninguém estiver logado -->
+  <div id="precisa-login" class="vazio" hidden>
+    <h2 class="display">Entre na sua conta.</h2>
+    <p>Aqui você vê e edita os dados da conta criada neste navegador.</p>
+    <a class="btn btn-laranja" href="perfil.html">Entrar</a>
+    <a class="btn btn-borda" href="cadastro.html?next=perfil.html">Criar conta</a>
+  </div>
+
+
+  <div id="area-perfil" hidden>
+
+    <fieldset>
+      <legend>Dados pessoais</legend>
+
+      <p id="msg-dados-ok" class="mensagem" role="status" hidden>Dados atualizados!</p>
+
+      <form id="form-dados" novalidate>
+
+        <div class="grade-form">
+
+          <label class="dobro">
+            <span>Nome completo</span>
+            <input type="text" id="nome" data-tipo="texto" data-erro="Digite seu nome completo.">
+            <small class="erro"></small>
+          </label>
+
+          <label>
+            <span>Telefone</span>
+            <input type="tel" id="telefone" inputmode="numeric" data-mascara="telefone" data-tipo="telefone" data-erro="Digite o telefone com DDD.">
+            <small class="erro"></small>
+          </label>
+
+          <label class="dobro">
+            <span>E-mail (não dá para mudar)</span>
+            <input type="email" id="email" readonly>
+          </label>
+
+        </div>
+
+        <p><button class="btn btn-laranja" type="submit">Salvar dados</button></p>
+
+      </form>
+    </fieldset>
+
+
+    <fieldset>
+      <legend>Endereço de entrega</legend>
+
+      <p id="msg-endereco-ok" class="mensagem" role="status" hidden>Endereço salvo!</p>
+
+      <form id="form-endereco" novalidate>
+
+        <div class="grade-form">
+
+        <label>
+          <span>CEP</span>
+          <input type="text" id="cep" inputmode="numeric" placeholder="00000-000" maxlength="9" data-mascara="cep" data-tipo="cep" data-erro="CEP inválido. Digite os 8 números.">
+          <small class="erro"></small>
+        </label>
+        
+        <label class="dobro">
+          <span>Rua</span>
+          <input type="text" id="rua" data-tipo="texto" data-erro="Digite o nome da rua.">
+          <small class="erro"></small>
+        </label>
+        
+        <label>
+          <span>Número</span>
+          <input type="text" id="numero" maxlength="10" data-tipo="obrigatorio" data-erro="Digite o número.">
+          <small class="erro"></small>
+        </label>
+        
+        <label>
+          <span>Complemento (opcional)</span>
+          <input type="text" id="complemento">
+          <small class="erro"></small>
+        </label>
+        
+        <label>
+          <span>Bairro</span>
+          <input type="text" id="bairro" data-tipo="texto" data-erro="Digite o bairro.">
+          <small class="erro"></small>
+        </label>
+        
+        <label>
+          <span>Cidade</span>
+          <input type="text" id="cidade" data-tipo="texto" data-erro="Digite a cidade.">
+          <small class="erro"></small>
+        </label>
+        
+        <label>
+          <span>UF</span>
+          <input type="text" id="uf" maxlength="2" placeholder="SP" data-tipo="uf" data-erro="Use a sigla do estado, ex.: SP.">
+          <small class="erro"></small>
+        </label>
+
+        </div>
+
+        <p><button class="btn btn-escuro" type="submit">Salvar endereço</button></p>
+
+      </form>
+    </fieldset>
+
+
+    <fieldset>
+      <legend>Pedidos</legend>
+
+      <p>Você tem <strong id="qtd-pedidos">0</strong> pedido(s) neste navegador.</p>
+
+      <a class="btn btn-borda" href="pedidos.html">Ver meus pedidos</a>
+    </fieldset>
+
+
+    <button id="btn-sair-perfil" class="btn btn-borda" type="button">Sair da conta</button>
+
+  </div>
+
+</div>
+
+</main>
+
+
+<footer class="site-footer">
+
+  <div class="wrap rodape-colunas">
+
+    <div>
+      <a class="logo" href="index.html" aria-label="TACO 72">
+        <span>TACO</span>
+        <b>72</b>
+      </a>
+      <p class="rodape-texto">
+        Taco de rua, sem atalho.<br>
+        Sabor de rua, feito de verdade.
+      </p>
+    </div>
+
+    <nav aria-label="Navegue">
+      <h2 class="rodape-titulo">Navegue</h2>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="pedidos.html">Meus pedidos</a>
+      <a href="perfil.html">Minha conta</a>
+    </nav>
+
+    <div>
+      <h2 class="rodape-titulo">Atendimento </h2>
+      <p class="rodape-texto">
+        Seg a Sex, 11h às 23h<br>
+        Sab, 11h, às 19h <br>
+        (31) 98765-4321<br>
+        contato@taco72.com
+      </p>
+    </div>
+
+  </div>
+
+  <div class="wrap rodape-fim">
+    <p>2026 © <span id="ano"></span> Taco 72. Receitas mexicanas com ingredientes frescos, fogo alto e entrega rápida. Da nossa cozinha direto para a sua fome.</p>
+  </div>
+
+</footer>
+
+
+<script src="main.js"></script>
+<script src="perfil.js"></script>
+
+</body>
+</html>

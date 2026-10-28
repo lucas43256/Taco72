@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TACO 72 - Tacos mexicanos com entrega</title>
+  <meta name="description" content="TACO 72: site de delivery de comida mexicana feito como projeto acadêmico de front-end.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+
+<body>
+
+<a class="skip" href="#principal">Pular para o conteúdo</a>
+
+<header id="site-header" class="site-header">
+
+  <div class="wrap nav">
+
+    <a class="logo" href="index.html" aria-label="TACO 72 - página inicial">
+      <span>TACO</span>
+      <b>72</b>
+    </a>
+
+    <button id="btn-menu" class="btn-menu" type="button" aria-label="Abrir menu">☰</button>
+
+    <nav class="nav-links" aria-label="Principal">
+
+      <div class="nav-main">
+        <a class="nav-link on" href="index.html">Início</a>
+        <a class="nav-link" href="cardapio.html">Cardápio</a>
+        <a class="nav-link" href="pedidos.html">Meus pedidos</a>
+      </div>
+
+      <div class="nav-actions">
+
+        <button id="btn-tema" class="btn-tema" type="button" aria-label="Alternar tema claro e escuro">
+          <span class="so-claro">☾</span>
+          <span class="so-escuro">☀</span>
+        </button>
+
+        <span id="conta-visitante" class="conta">
+          <a class="nav-link" href="login.html">Entrar</a>
+          <a class="btn btn-borda" href="cadastro.html">Criar conta</a>
+        </span>
+
+        <span id="conta-logada" class="conta" hidden>
+          <a class="nav-link" href="perfil.html">Olá, <span id="nome-usuario"></span></a>
+          <button id="btn-sair" class="btn btn-borda" type="button">Sair</button>
+        </span>
+
+        <a class="btn btn-escuro" href="carrinho.html">
+          Carrinho
+          <span id="contador" class="contador">0</span>
+        </a>
+
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<main id="principal">
+
+<section class="hero">
+
+  <div class="hero-esquerda">
+
+    <p class="eyebrow">Sabor de rua, feito de verdade</p>
+
+    <h1 class="display">Taco bom<br>não espera.</h1>
+
+    <p class="lead">
+      Receitas mexicanas com ingredientes frescos, fogo alto e entrega rápida.
+      Da nossa cozinha direto para a sua fome.
+    </p>
+
+    <div class="hero-botoes">
+
+      <a class="btn btn-laranja" href="cardapio.html">Pedir agora →</a>
+
+      <div class="tempo">
+        <strong>25–35</strong> min
+        <small>Tempo médio estimado (ilustrativo)</small>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-direita">
+
+    <span class="feito-na-hora">Feito<br>na hora ↗</span>
+
+    <div class="circulo-externo">
+      <div class="circulo-interno">
+        <img src="images/AiPastor.jpg" alt="Ilustração de tacos al pastor">
+      </div>
+    </div>
+
+    <div class="nota">
+      <b>4,9</b>
+      <span>
+        ★★★★★
+        <small>Nota fictícia, sem avaliações reais</small>
+      </span>
+    </div>
+
+    <span class="texto-vertical">Projeto acadêmico • Sabor sem atalho</span>
+
+  </div>
+
+</section>
+
+
+<section class="faixa-busca">
+
+  <form class="busca" action="cardapio.html" method="get" role="search">
+
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"></circle>
+      <path d="m20 20-3.5-3.5"></path>
+    </svg>
+
+    <label class="sr" for="busca-home">Buscar no cardápio</label>
+    <input id="busca-home" name="q" type="search" placeholder="O que vai matar sua fome hoje?" autocomplete="off">
+
+    <button class="btn btn-limao" type="submit">Buscar</button>
+
+  </form>
+
+  <div class="chips">
+    <span>Mais buscados:</span>
+    <a class="chip" href="cardapio.html?q=al%20pastor">Al pastor</a>
+    <a class="chip" href="cardapio.html?q=birria">Birria</a>
+    <a class="chip" href="cardapio.html?q=vegetariano">Vegetariano</a>
+  </div>
+
+</section>
+
+
+<section class="secao">
+
+  <div class="secao-topo">
+
+    <div>
+      <span class="eyebrow">Os favoritos da casa</span>
+      <h2 class="display">Escolha sem medo.</h2>
+    </div>
+
+    <a class="link-seta" href="cardapio.html">Ver cardápio completo →</a>
+
+  </div>
+
+  <div class="grade-cards">
+
+      <article class="card" data-categoria="Tacos" data-vegetariano="nao" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/AiPastor.jpg" alt="Ilustração de Al Pastor 72" loading="lazy">
+          <span class="tag">MAIS PEDIDO</span>
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Tacos</span>
+          <h3>Al Pastor 72</h3>
+          <p class="desc">Porco marinado, abacaxi tostado, cebola roxa e coentro.</p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 24,90</strong>
+            <button class="add" type="button" data-id="1" data-nome="Al Pastor 72" data-preco="24.90" data-img="al-pastor.svg" aria-label="Adicionar Al Pastor 72 ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Tacos" data-vegetariano="nao" data-picante="sim">
+
+        <div class="card-img">
+          <img src="images/BirriaBrava.jpg" alt="Ilustração de Birria Brava" loading="lazy">
+          <span class="tag">PICANTE</span>
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Tacos</span>
+          <h3>Birria Brava</h3>
+          <p class="desc">Carne cozida lentamente, queijo, cebola e caldo consommé.</p>
+          <p class="marcas">
+            <span class="marca">Picante</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 28,90</strong>
+            <button class="add" type="button" data-id="2" data-nome="Birria Brava" data-preco="28.90" data-img="birria.svg" aria-label="Adicionar Birria Brava ao carrinho">+</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-categoria="Vegetarianos" data-vegetariano="sim" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/VerdeCasa.jpg" alt="Ilustração de Verde da Casa" loading="lazy">
+          <span class="tag">VEGGIE</span>
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Vegetarianos</span>
+          <h3>Verde da Casa</h3>
+          <p class="desc">Cogumelos, milho tostado, guacamole e salsa verde.</p>
+          <p class="marcas">
+            <span class="marca">Vegetariano</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 22,90</strong>
+            <button class="add" type="button" data-id="3" data-nome="Verde da Casa" data-preco="22.90" data-img="verde.svg" aria-label="Adicionar Verde da Casa ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+  </div>
+</section>
+
+
+<section class="institucional">
+
+  <div class="inst-imagem">
+    <img src="images/BurritoGrande.jpg" alt="Ilustração de uma mesa colorida com molhos e tacos">
+    <span class="numero-72" aria-hidden="true">72</span>
+  </div>
+
+  <div class="inst-texto">
+
+    <span class="eyebrow">Não é fast-food. É comida rápida.</span>
+
+    <h2 class="display">Menos<br>atalho.<br><span>Mais sabor.</span></h2>
+
+    <p>
+      Tortilhas preparadas todos os dias. Carnes marinadas por 12 horas.
+      Molhos feitos na casa. Aqui, a pressa só começa depois que o pedido fica pronto.
+    </p>
+
+    <ul class="indicadores">
+      <li>✓ INGREDIENTES FRESCOS</li>
+      <li>✓ FEITO NA HORA</li>
+      <li>✓ ENTREGA RÁPIDA</li>
+    </ul>
+
+    <p class="note">Texto do conceito fictício da marca, sem informação comercial real.</p>
+
+  </div>
+</section>
+</main>
+
+
+<footer class="site-footer">
+
+  <div class="wrap rodape-colunas">
+
+    <div>
+      <a class="logo" href="index.html" aria-label="TACO 72">
+        <span>TACO</span>
+        <b>72</b>
+      </a>
+      <p class="rodape-texto">
+        Taco de rua, sem atalho.<br>
+        Sabor de rua, feito de verdade.
+      </p>
+    </div>
+
+    <nav aria-label="Navegue">
+      <h2 class="rodape-titulo">Navegue</h2>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="pedidos.html">Meus pedidos</a>
+      <a href="perfil.html">Minha conta</a>
+    </nav>
+
+    <div>
+      <h2 class="rodape-titulo">Atendimento </h2>
+      <p class="rodape-texto">
+        Seg a Sex, 11h às 23h<br>
+        Sab, 11h, às 19h <br>
+        (31) 98765-4321<br>
+        contato@taco72.com
+      </p>
+    </div>
+
+  </div>
+
+  <div class="wrap rodape-fim">
+    <p>2026 © <span id="ano"></span> Taco 72. Receitas mexicanas com ingredientes frescos, fogo alto e entrega rápida. Da nossa cozinha direto para a sua fome.</p>
+  </div>
+
+</footer>
+
+
+<script src="main.js"></script>
+
+
+</body>
+</html>

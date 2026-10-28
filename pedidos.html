@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meus pedidos - TACO 72</title>
+  <meta name="description" content="Veja os pedidos feitos neste navegador no TACO 72.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+
+<body>
+
+<a class="skip" href="#principal">Pular para o conteúdo</a>
+
+<header id="site-header" class="site-header">
+
+  <div class="wrap nav">
+
+    <a class="logo" href="index.html" aria-label="TACO 72 - página inicial">
+      <span>TACO</span>
+      <b>72</b>
+    </a>
+
+    <button id="btn-menu" class="btn-menu" type="button" aria-label="Abrir menu">☰</button>
+
+    <nav class="nav-links" aria-label="Principal">
+
+      <div class="nav-main">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="cardapio.html">Cardápio</a>
+        <a class="nav-link on" href="pedidos.html">Meus pedidos</a>
+      </div>
+
+      <div class="nav-actions">
+
+        <button id="btn-tema" class="btn-tema" type="button" aria-label="Alternar tema claro e escuro">
+          <span class="so-claro">☾</span>
+          <span class="so-escuro">☀</span>
+        </button>
+
+        <span id="conta-visitante" class="conta">
+          <a class="nav-link" href="login.html">Entrar</a>
+          <a class="btn btn-borda" href="cadastro.html">Criar conta</a>
+        </span>
+
+        <span id="conta-logada" class="conta" hidden>
+          <a class="nav-link" href="perfil.html">Olá, <span id="nome-usuario"></span></a>
+          <button id="btn-sair" class="btn btn-borda" type="button">Sair</button>
+        </span>
+
+        <a class="btn btn-escuro" href="carrinho.html">
+          Carrinho
+          <span id="contador" class="contador">0</span>
+        </a>
+
+      </div>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main id="principal">
+
+<div class="pagina">
+
+  <div class="pagina-topo">
+    <span class="eyebrow">Histórico neste navegador</span>
+    <h1 class="display">Meus pedidos</h1>
+  </div>
+
+
+  <!-- aparece se ninguém estiver logado -->
+  <div id="precisa-login" class="vazio" hidden>
+    <h2 class="display">Entre para ver seus pedidos.</h2>
+    <p>Os pedidos ficam ligados à conta criada neste navegador.</p>
+    <a class="btn btn-laranja" href="login.html?next=pedidos.html">Entrar</a>
+  </div>
+
+
+  <div id="area-pedidos" hidden>
+
+    <div id="sem-pedidos" class="vazio" hidden>
+      <h2 class="display">Nenhum pedido ainda.</h2>
+      <p>Quando você finalizar um pedido, ele aparece aqui.</p>
+      <a class="btn btn-laranja" href="cardapio.html">Ver cardápio</a>
+    </div>
+
+    <ul id="lista-pedidos" class="lista"></ul>
+
+    <p class="note">
+      O status é só de demonstração: não existe restaurante nem servidor atualizando o pedido.
+    </p>
+
+  </div>
+
+</div>
+
+
+<template id="modelo-pedido">
+  <li class="pedido">
+
+    <div class="pedido-topo">
+      <strong class="pedido-numero"></strong>
+      <span class="status"></span>
+    </div>
+
+    <span class="muted pedido-data"></span>
+
+    <div class="pedido-topo">
+      <strong>R$ <span class="pedido-total"></span></strong>
+      <button class="btn btn-borda btn-pequeno btn-cancelar" type="button" data-confirmar="Quer mesmo cancelar este pedido?">Cancelar pedido</button>
+    </div>
+
+    <details>
+      <summary>Ver detalhes</summary>
+
+      <ul class="itens-pedido"></ul>
+
+      <p class="muted">Subtotal R$ <span class="pedido-subtotal"></span> · Entrega R$ <span class="pedido-taxa"></span></p>
+      <p><strong>Entrega em:</strong> <span class="pedido-endereco"></span></p>
+      <p><strong>Pagamento:</strong> <span class="pedido-pagamento"></span></p>
+      <p><strong>Contato:</strong> <span class="pedido-contato"></span></p>
+    </details>
+
+  </li>
+</template>
+
+
+<template id="modelo-linha">
+  <li>
+    <span><span class="linha-qtd"></span>× <span class="linha-nome"></span></span>
+    <span>R$ <span class="linha-valor"></span></span>
+  </li>
+</template>
+
+</main>
+<div></div>
+
+<footer class="site-footer">
+
+  <div class="wrap rodape-colunas">
+
+    <div>
+      <a class="logo" href="index.html" aria-label="TACO 72">
+        <span>TACO</span>
+        <b>72</b>
+      </a>
+      <p class="rodape-texto">
+        Taco de rua, sem atalho.<br>
+        Sabor de rua, feito de verdade.
+      </p>
+    </div>
+
+    <nav aria-label="Navegue">
+      <h2 class="rodape-titulo">Navegue</h2>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="pedidos.html">Meus pedidos</a>
+      <a href="perfil.html">Minha conta</a>
+    </nav>
+
+    <div>
+      <h2 class="rodape-titulo">Atendimento </h2>
+      <p class="rodape-texto">
+        Seg a Sex, 11h às 23h<br>
+        Sab, 11h, às 19h <br>
+        (31) 98765-4321<br>
+        contato@taco72.com
+      </p>
+    </div>
+
+  </div>
+
+  <div class="wrap rodape-fim">
+    <p>2026 © <span id="ano"></span> Taco 72. Receitas mexicanas com ingredientes frescos, fogo alto e entrega rápida. Da nossa cozinha direto para a sua fome.</p>
+  </div>
+
+</footer>
+
+
+<script src="main.js"></script>
+<script src="pedidos.js"></script>
+
+</body>
+</html>

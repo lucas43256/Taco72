@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cardápio - TACO 72</title>
+  <meta name="description" content="Cardápio do TACO 72 com busca e filtro por categoria.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+</head>
+
+<body>
+
+<a class="skip" href="#principal">Pular para o conteúdo</a>
+
+<header id="site-header" class="site-header">
+
+  <div class="wrap nav">
+
+    <a class="logo" href="index.html" aria-label="TACO 72 - página inicial">
+      <span>TACO</span>
+      <b>72</b>
+    </a>
+
+    <button id="btn-menu" class="btn-menu" type="button" aria-label="Abrir menu">☰</button>
+
+    <nav class="nav-links" aria-label="Principal">
+
+      <div class="nav-main">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link on" href="cardapio.html">Cardápio</a>
+        <a class="nav-link" href="pedidos.html">Meus pedidos</a>
+      </div>
+
+      <div class="nav-actions">
+
+        <button id="btn-tema" class="btn-tema" type="button" aria-label="Alternar tema claro e escuro">
+          <span class="so-claro">☾</span>
+          <span class="so-escuro">☀</span>
+        </button>
+
+        <span id="conta-visitante" class="conta">
+          <a class="nav-link" href="login.html">Entrar</a>
+          <a class="btn btn-borda" href="cadastro.html">Criar conta</a>
+        </span>
+
+        <span id="conta-logada" class="conta" hidden>
+          <a class="nav-link" href="perfil.html">Olá, <span id="nome-usuario"></span></a>
+          <button id="btn-sair" class="btn btn-borda" type="button">Sair</button>
+        </span>
+
+        <a class="btn btn-escuro" href="carrinho.html">
+          Carrinho
+          <span id="contador" class="contador">0</span>
+        </a>
+
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+
+<main id="principal">
+
+<div class="pagina">
+
+  <div class="pagina-topo">
+    <span class="eyebrow">Tudo feito na hora</span>
+    <h1 class="display">Nosso cardápio</h1>
+  </div>
+
+
+  <form id="filtros" class="filtros" role="search">
+
+    <label>
+      <span>Buscar no cardápio</span>
+      <input id="busca" type="search" placeholder="Ex.: al pastor, queijo, bebidas" autocomplete="off">
+    </label>
+
+    <label>
+      <span>Categoria</span>
+      <select id="categoria">
+        <option value="">Todas</option>
+        <option value="Tacos">Tacos</option>
+        <option value="Vegetarianos">Vegetarianos</option>
+        <option value="Burritos">Burritos</option>
+        <option value="Acompanhamentos">Acompanhamentos</option>
+        <option value="Bebidas">Bebidas</option>
+        <option value="Sobremesas">Sobremesas</option>
+      </select>
+    </label>
+
+  </form>
+
+
+  <div class="opcoes">
+
+    <label class="opcao">
+      <input type="checkbox" id="so-vegetarianos">
+      Só vegetarianos
+    </label>
+
+    <label class="opcao">
+      <input type="checkbox" id="so-picantes">
+      Só picantes
+    </label>
+
+    <button id="limpar" class="link-btn" type="button">Limpar filtros</button>
+
+  </div>
+
+
+  <p class="contagem"><span id="quantos">14</span> prato(s) encontrado(s)</p>
+
+
+  <div class="grade-cards">
+
+      <article class="card" data-categoria="Tacos" data-vegetariano="nao" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/AiPastor.jpg" alt="Ilustração de Al Pastor 72" loading="lazy">
+          <span class="tag">MAIS PEDIDO</span>
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Tacos</span>
+          <h3>Al Pastor 72</h3>
+          <p class="desc">Porco marinado, abacaxi tostado, cebola roxa e coentro.</p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 24,90</strong>
+            <button class="add" type="button" data-id="1" data-nome="Al Pastor 72" data-preco="24.90" data-img="al-pastor.svg" aria-label="Adicionar Al Pastor 72 ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Tacos" data-vegetariano="nao" data-picante="sim">
+
+        <div class="card-img">
+          <img src="images/BirriaBrava.jpg" alt="Ilustração de Birria Brava" loading="lazy">
+          <span class="tag">PICANTE</span>
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Tacos</span>
+          <h3>Birria Brava</h3>
+          <p class="desc">Carne cozida lentamente, queijo, cebola e caldo consommé.</p>
+          <p class="marcas">
+            <span class="marca">Picante</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 28,90</strong>
+            <button class="add" type="button" data-id="2" data-nome="Birria Brava" data-preco="28.90" data-img="birria.svg" aria-label="Adicionar Birria Brava ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Vegetarianos" data-vegetariano="sim" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/VerdeCasa.jpg" alt="Ilustração de Verde da Casa" loading="lazy">
+          <span class="tag">VEGGIE</span>
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Vegetarianos</span>
+          <h3>Verde da Casa</h3>
+          <p class="desc">Cogumelos, milho tostado, guacamole e salsa verde.</p>
+          <p class="marcas">
+            <span class="marca">Vegetariano</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 22,90</strong>
+            <button class="add" type="button" data-id="3" data-nome="Verde da Casa" data-preco="22.90" data-img="verde.svg" aria-label="Adicionar Verde da Casa ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Tacos" data-vegetariano="nao" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/Carnitas.jpg" alt="Ilustração de Carnitas Crocantes" loading="lazy">
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Tacos</span>
+          <h3>Carnitas Crocantes</h3>
+          <p class="desc">Porco desfiado e dourado, cebola, coentro e limão.</p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 26,90</strong>
+            <button class="add" type="button" data-id="4" data-nome="Carnitas Crocantes" data-preco="26.90" data-img="carnitas.svg" aria-label="Adicionar Carnitas Crocantes ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Tacos" data-vegetariano="nao" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/BajaPeixe.jpg" alt="Ilustração de Baja de Peixe" loading="lazy">
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Tacos</span>
+          <h3>Baja de Peixe</h3>
+          <p class="desc">Peixe empanado, repolho roxo, creme de limão e pico de gallo.</p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 29,90</strong>
+            <button class="add" type="button" data-id="5" data-nome="Baja de Peixe" data-preco="29.90" data-img="peixe.svg" aria-label="Adicionar Baja de Peixe ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Tacos" data-vegetariano="nao" data-picante="sim">
+
+        <div class="card-img">
+          <img src="images/Chorizo.jpg" alt="Ilustração de Chorizo Diabo" loading="lazy">
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Tacos</span>
+          <h3>Chorizo Diabo</h3>
+          <p class="desc">Chorizo artesanal, pimenta habanero, cebola e queijo fresco.</p>
+          <p class="marcas">
+            <span class="marca">Picante</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 27,90</strong>
+            <button class="add" type="button" data-id="6" data-nome="Chorizo Diabo" data-preco="27.90" data-img="chorizo.svg" aria-label="Adicionar Chorizo Diabo ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Burritos" data-vegetariano="nao" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/BurritoGrande.jpg" alt="Ilustração de Burrito Grande" loading="lazy">
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Burritos</span>
+          <h3>Burrito Grande</h3>
+          <p class="desc">Tortilha de trigo, arroz, feijão, carne assada, queijo e salsa.</p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 34,90</strong>
+            <button class="add" type="button" data-id="7" data-nome="Burrito Grande" data-preco="34.90" data-img="burrito.svg" aria-label="Adicionar Burrito Grande ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Burritos" data-vegetariano="sim" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/Quesadilha.jpg" alt="Ilustração de Quesadilla de Queijo" loading="lazy">
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Burritos</span>
+          <h3>Quesadilla de Queijo</h3>
+          <p class="desc">Tortilha grelhada com queijos derretidos e pimentão assado.</p>
+          <p class="marcas">
+            <span class="marca">Vegetariano</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 21,90</strong>
+            <button class="add" type="button" data-id="8" data-nome="Quesadilla de Queijo" data-preco="21.90" data-img="quesadilla.svg" aria-label="Adicionar Quesadilla de Queijo ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Acompanhamentos" data-vegetariano="sim" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/NachosGua.jpg" alt="Ilustração de Nachos com Guacamole" loading="lazy">
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Acompanhamentos</span>
+          <h3>Nachos com Guacamole</h3>
+          <p class="desc">Tortilla chips crocantes, queijo gratinado e guacamole.</p>
+          <p class="marcas">
+            <span class="marca">Vegetariano</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 19,90</strong>
+            <button class="add" type="button" data-id="9" data-nome="Nachos com Guacamole" data-preco="19.90" data-img="nachos.svg" aria-label="Adicionar Nachos com Guacamole ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Acompanhamentos" data-vegetariano="sim" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/Guacamole.jpg" alt="Ilustração de Guacamole Fresco" loading="lazy">
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Acompanhamentos</span>
+          <h3>Guacamole Fresco</h3>
+          <p class="desc">Abacate, tomate, cebola, coentro e limão feito na hora.</p>
+          <p class="marcas">
+            <span class="marca">Vegetariano</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 14,90</strong>
+            <button class="add" type="button" data-id="10" data-nome="Guacamole Fresco" data-preco="14.90" data-img="guacamole.svg" aria-label="Adicionar Guacamole Fresco ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Acompanhamentos" data-vegetariano="sim" data-picante="sim">
+
+        <div class="card-img">
+          <img src="images/EloteBrasa.jpg" alt="Ilustração de Elote na Brasa" loading="lazy">
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Acompanhamentos</span>
+          <h3>Elote na Brasa</h3>
+          <p class="desc">Milho na brasa com maionese, queijo e pimenta em pó.</p>
+          <p class="marcas">
+            <span class="marca">Vegetariano</span>
+            <span class="marca">Picante</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 12,90</strong>
+            <button class="add" type="button" data-id="11" data-nome="Elote na Brasa" data-preco="12.90" data-img="elote.svg" aria-label="Adicionar Elote na Brasa ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Bebidas" data-vegetariano="sim" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/Limonada.jpg" alt="Ilustração de Limonada Mexicana" loading="lazy">
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Bebidas</span>
+          <h3>Limonada Mexicana</h3>
+          <p class="desc">Limão, hortelã e gelo. Sem álcool.</p>
+          <p class="marcas">
+            <span class="marca">Vegetariano</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 9,90</strong>
+            <button class="add" type="button" data-id="12" data-nome="Limonada Mexicana" data-preco="9.90" data-img="limonada.svg" aria-label="Adicionar Limonada Mexicana ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Bebidas" data-vegetariano="sim" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/Horchata.jpg" alt="Ilustração de Horchata" loading="lazy">
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Bebidas</span>
+          <h3>Horchata</h3>
+          <p class="desc">Bebida gelada de arroz com canela.</p>
+          <p class="marcas">
+            <span class="marca">Vegetariano</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 11,90</strong>
+            <button class="add" type="button" data-id="13" data-nome="Horchata" data-preco="11.90" data-img="horchata.svg" aria-label="Adicionar Horchata ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="card" data-categoria="Sobremesas" data-vegetariano="sim" data-picante="nao">
+
+        <div class="card-img">
+          <img src="images/Churros.jpg" alt="Ilustração de Churros com Doce de Leite" loading="lazy">
+        </div>
+
+        <div class="card-body">
+          <span class="eyebrow">Sobremesas</span>
+          <h3>Churros com Doce de Leite</h3>
+          <p class="desc">Churros crocantes com açúcar, canela e doce de leite.</p>
+          <p class="marcas">
+            <span class="marca">Vegetariano</span>
+          </p>
+
+          <div class="card-rodape">
+            <strong class="preco">R$ 15,90</strong>
+            <button class="add" type="button" data-id="14" data-nome="Churros com Doce de Leite" data-preco="15.90" data-img="churros.svg" aria-label="Adicionar Churros com Doce de Leite ao carrinho">+</button>
+          </div>
+        </div>
+
+      </article>
+
+  </div>
+
+
+  <div id="sem-resultado" class="vazio" hidden>
+    <h2 class="display">Nada por aqui.</h2>
+    <p>Nenhum prato combina com essa busca. Tente outra palavra ou limpe os filtros.</p>
+    <button id="limpar-2" class="btn btn-laranja" type="button">Limpar filtros</button>
+  </div>
+
+</div>
+</main>
+
+
+<footer class="site-footer">
+  <div class="wrap rodape-colunas">
+
+    <div>
+      <a class="logo" href="index.html" aria-label="TACO 72">
+        <span>TACO</span>
+        <b>72</b>
+      </a>
+      <p class="rodape-texto">
+        Taco de rua, sem atalho.<br>
+        Sabor de rua, feito de verdade.
+      </p>
+    </div>
+
+    <nav aria-label="Navegue">
+      <h2 class="rodape-titulo">Navegue</h2>
+      <a href="cardapio.html">Cardápio</a>
+      <a href="pedidos.html">Meus pedidos</a>
+      <a href="perfil.html">Minha conta</a>
+    </nav>
+
+    <div>
+      <h2 class="rodape-titulo">Atendimento </h2>
+      <p class="rodape-texto">
+        Seg a Sex, 11h às 23h<br>
+        Sab, 11h, às 19h <br>
+        (31) 98765-4321<br>
+        contato@taco72.com
+      </p>
+    </div>
+
+  </div>
+
+  <div class="wrap rodape-fim">
+    <p>2026 © <span id="ano"></span> Taco 72. Receitas mexicanas com ingredientes frescos, fogo alto e entrega rápida. Da nossa cozinha direto para a sua fome.</p>
+  </div>
+</footer>
+
+
+<script src="main.js"></script>
+<script src="cardapio.js"></script>
+
+</body>
+</html>
